@@ -13,9 +13,11 @@ function App() {
       </h1>
 
       <div className="flex items-center justify-around mt-8 mb-32">
-        {dummyEvents.map((eventData) => (
-          <EventCard eventData={eventData} />
-        ))}
+        {Array.isArray(dummyEvents.items) && dummyEvents.items.length > 0 ? (
+  dummyEvents.items.map((item) => <p key={item.id}>{item.name}</p>)
+) : (
+  <p>No items available</p>
+)}
       </div>
     </div>
   );
